@@ -14,13 +14,15 @@ const { src, dest, series, watch } = require(`gulp`),
         browserChoice = `google chrome`;
     }
 
- //   let valCSS = () => {
- //       return src([
- //           `dev/css/*.css`,
-  //          `dev/css/**/*.css`])
- //           .pipe(validateCSS(undefined));
- //   };
-    
+    let valCSS = () => {
+        return src([
+            `dev/css/*.css`,
+            `dev/css/**/*.css`])
+            .pipe(validateCSS(undefined));
+    };
+
+   
+
     let compressHTML = () => {
         return src([`dev/html/*.html`,`dev/html/**/*.html`])
             .pipe(htmlCompressor({collapseWhitespace: true}))
@@ -91,13 +93,13 @@ let serve = () => {
 /*
 testing
 */
-    watch(`dev/js/**/*.js` ,series(validateJS, transpileJSForDev))
+    watch(`dev/js/*.js` ,series(lintJS, transpileJSForDev))
         .on(`change`, reload);
 
-    watch(`dev/css/**/*.css`)
+    watch(`dev/css/*.css`)
         .on(`change`, reload);
 
-    watch(`dev/html/**/*.html`)
+    watch(`dev/*.html`)
         .on(`change`, reload);
 
 };
