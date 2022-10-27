@@ -1,11 +1,8 @@
+window.onload = () => {
 let track = document.querySelector(`.carousel_track`);
-let slides = Array.from(track.childern);
-
 let nextButton = document.querySelector(`.carousel_button-right`);
 let prevButton = document.querySelector(`.carousel_button-left`);
 let dotsNav = document.querySelector(`.carousel_map`);
-let dots = Array.from(dotsNav.childern);
-
 let slideWidth = slides[0].getBoundingClientRect().width;
 
 
@@ -24,3 +21,4 @@ nextButton.addEventListener(`click`, e=>{
     nextSlide.classList.add(`current-slide`);
 
 })
+}
