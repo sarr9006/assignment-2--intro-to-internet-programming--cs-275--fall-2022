@@ -99,7 +99,6 @@ testing
     watch(`dev/css/*.css`)
         .on(`change`, reload);
 
-    watch(`dev/*.html`)
         .on(`change`, reload);
 
 };
